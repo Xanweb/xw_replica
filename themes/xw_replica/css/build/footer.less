@@ -1,0 +1,135 @@
+footer#footer-theme {
+  h4,h3{
+    font: 700 15px/1.5 'Open Sans', Verdana, sans-serif;
+    color: @footer-text-color;
+    margin-bottom: 30px;
+    &:after{
+      content: '';
+      display: block;
+      width: 25px;
+      height: 3px;
+      position: relative;
+      top: 8px;
+      left: 0;
+      background-color: @footer-link-color;
+    }
+  }
+  .block-sidebar-wrapped{
+    h4,h3 , p{
+      color: @footer-wrapped-block-text-color;
+    }
+  }
+  .nav {
+    li {
+      &:before{
+        color: @footer-nav-link-color;
+      }
+      a {
+        color: @footer-nav-link-color;
+        &:hover {
+          color: @footer-link-color;
+        }
+      }
+    }
+  }
+
+  a {
+    color: @footer-link-color;
+
+    &:hover {
+      color: @footer-link-hover-color !important;
+    }
+  }
+
+  color: @footer-text-color;
+
+
+  div.ccm-block-social-links {
+    text-align: right;
+
+    ul {
+      a {
+        color: @footer-social-icon-color;
+
+        &:hover {
+          color: @footer-social-icon-hover-color;
+        }
+      }
+    }
+  }
+
+  section {
+    border-top: 1px solid @footer-section-divider-color;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  section:first-child {
+    background-color: @footer-top-background-color;
+  }
+
+  section:last-child {
+    padding-bottom: 30px;
+    background-color: @footer-bottom-background-color;
+  }
+
+  #footer-site-title {
+    font-family: @footer-site-title-type-font-family;
+    font-weight: @footer-site-title-type-font-weight;
+    color: @footer-site-title-type-color;
+    text-transform: @footer-site-title-type-text-transform;
+    font-size: @footer-site-title-type-font-size;
+    .transition(color 0.2s linear);
+
+    &:hover {
+      color: darken(@brand-primary-color, 20%);
+      text-decoration: none !important;
+    }
+  }
+  p{
+    color: @footer-text-color;
+  }
+}
+
+footer#concrete5-brand {
+  background-color: @footer-brand-bg-color;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  a.concrete5 {
+    color: @brand-link-color;
+
+    &:hover {
+      color: @body-link-hover-color;
+    }
+  }
+
+  a {
+    color: @brand-link-color;
+
+    &:hover {
+      color: @body-link-hover-color;
+    }
+  }
+
+  color: @footer-text-color;
+
+  #ccm-account-menu {
+    right: 80px;
+    top: -10px;
+    .dropdown-menu{
+      padding: 10px 15px;
+      li{
+        a{
+          &:hover{
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav.footer-nav {
+  display: block;
+}

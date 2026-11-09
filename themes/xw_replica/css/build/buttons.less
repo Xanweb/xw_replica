@@ -1,0 +1,20 @@
+.btn {
+  .border-radius(@btn-round-size);
+  padding: 10px 30px 10px 30px;
+  i{
+    margin-right: 10px;
+  }
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+
+.btn-success {
+  .button-variant(@btn-success-color, #00cc66, @btn-success-border);
+}
+
+.btn-default {
+  .button-variant(@body-type-color, @page-background-color, @default-button-border-color);
+}
+.btn-primary{
+  .button-variant(@btn-primary-color,@brand-primary-color , @brand-primary-color);
+}

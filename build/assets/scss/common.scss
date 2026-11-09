@@ -1,0 +1,8 @@
+@import "bootstrap-overrides";
+@import "~@concretecms/bedrock/assets/bedrock/scss/frontend";
+
+
+// Feature support - comes outside div.ccm-page
+// we imported polls feature manually because there is no asset for polls feature
+@import "~@concretecms/bedrock/assets/polls/scss/frontend";
+

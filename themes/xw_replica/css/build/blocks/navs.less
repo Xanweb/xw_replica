@@ -1,0 +1,119 @@
+.nav {
+  > li {
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: @nav-link-padding;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: transparent;
+        color: @body-link-hover-color;
+      }
+    }
+
+    > ul {
+      list-style-type: none;
+
+      li {
+        &:before {
+          content: "\f105";
+          font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+          margin-right: 10px;
+          width: 10px;
+          height: 10px;
+          color: @body-link-color;
+        }
+
+        a {
+          padding: 5px 0;
+          display: inline-block;
+          background-color: transparent;
+          color: @body-link-color;
+        }
+
+        &:hover {
+          &:before,
+          a {
+            text-decoration: none;
+            color: @body-link-hover-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.sidebar {
+    li {
+      &:before {
+        content: unset;
+      }
+
+      margin-bottom: 2px;
+
+      a {
+        color: @navigation-sidebar-hover-color !important;
+        border-left: 5px solid @body-link-hover-color;
+        background-color: @body-link-color;
+        display: block;
+        padding-left: 8px;
+        &:hover {
+          background-color: @body-link-hover-color;
+          color: @navigation-sidebar-hover-color !important;
+        }
+      }
+    }
+
+    ul {
+      padding-inline-start: 0;
+      margin-top: 2px;
+      list-style-type: none;
+    }
+
+    ul li a {
+      padding-left: @list-padding-left;
+    }
+
+    ul ul li a {
+      padding-left: @list-padding-left*1.5;
+    }
+
+    ul ul ul li a {
+      padding-left: @list-padding-left*2;
+    }
+
+  }
+
+  &.footer-nav {
+    li {
+      &:before {
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+        margin-right: 10px;
+        width: 10px;
+        height: 10px;
+        color: @footer-nav-link-color;
+      }
+
+      a {
+        color: @footer-nav-link-color;
+        padding: 5px 0;
+        display: inline-block;
+
+        &:hover {
+          color: @footer-link-color;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+ul ul {
+  list-style: none;
+}

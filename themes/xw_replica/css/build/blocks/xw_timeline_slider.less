@@ -1,0 +1,36 @@
+.timeline {
+  &__slider-item {
+    &.slick-current {
+      .timeline {
+        &__slider-item-bubble {
+          margin-top: 28px;
+        }
+        &__slider-item-headline {
+          font-weight: 700;
+          color: @brand-primary-color;
+        }
+        &__slider-item-subline {
+          font-weight: 700;
+          color: @paragraph-type-color;
+        }
+      }
+    }
+  }
+  &__slider-item-headline {
+    color: @brand-primary-color;
+    line-height: 1.5;
+  }
+  &__slider-item-subline {
+    color: @paragraph-type-color;
+    line-height: 1rem;
+  }
+  &__slider-inner:after {
+    height: 1px;
+  }
+  &__slider-arrow-icon {
+    fill: @brand-primary-color;
+  }
+  &__slider-arrow {
+    bottom: -15px;
+  }
+}

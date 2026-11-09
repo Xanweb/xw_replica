@@ -1,0 +1,31 @@
+{
+  "name": "xw_replica",
+  "private": true,
+  "scripts": {
+    "watch": "mix watch",
+    "development": "mix",
+    "production": "mix --production",
+    "lint": "standardx \"**/*.{js,vue}\" && stylelint **/*.{scss,vue}",
+    "lint:fix": "standardx \"**/*.{js,vue}\" --fix && stylelint **/*.{scss,vue} --fix",
+    "lint:css": "stylelint */scss/**/*.{scss,vue}",
+    "lint:fix:css": "stylelint */scss/**/*.{scss,vue} --fix",
+    "lint:js": "standardx \"*/js/**/*.{js,vue}\"",
+    "lint:fix:js": "standardx \"*/js/**/*.{js,vue}\" --fix",
+    "update-browserlist": "npx browserslist --update-db"
+  },
+  "dependencies": {
+    "@concretecms/bedrock": "^1.1.3"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.41",
+    "postcss": "^8.4.6",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.4.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.68.0"
+  }
+}

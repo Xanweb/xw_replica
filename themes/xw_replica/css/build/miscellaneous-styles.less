@@ -1,0 +1,40 @@
+div.ccm-page {
+  main {
+
+    // ensure that what you're putting in here is large and in charge
+    .jumbo {
+           p {
+        font-size: @h2-type-font-size;
+        color: @h4-type-color;
+        font-weight: 200;
+      }
+
+      min-height: 300px;
+    }
+  }
+}
+
+/* comes outside of main because we want to show it in redactor */
+.large-text {
+  font-size: larger;
+}
+
+.extra-large-text {
+  font-size: x-large;
+}
+
+.small-text {
+  font-size: smaller;
+}
+
+.extra-small-text {
+  font-size: x-small;
+}
+
+
+.image-caption {
+  font-family: @image-caption-type-font-family;
+  color: @image-caption-type-color;
+  font-size: @image-caption-type-font-size;
+  @image-caption-type-font-style: 'italic';
+}

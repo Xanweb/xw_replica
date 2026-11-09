@@ -1,0 +1,79 @@
+Replica theme
+Copyright (c) 2024 Xanweb
+MIT License (see LICENSE)
+
+This package bundles or derives from the third-party components listed below.
+Each is distributed under the MIT License; the copyright lines are given as
+found in the bundled files.
+
+------------------------------------------------------------------------------
+
+Bootstrap 5.3.3
+  Path:      themes/xw_replica/css/common.css (compiled from build/assets/scss in the source
+             repository, https://github.com/Xanweb/xw_replica)
+  License:   MIT
+  Copyright: Copyright 2011-2024 The Bootstrap Authors
+  Source:    https://getbootstrap.com/
+             https://github.com/twbs/bootstrap/blob/main/LICENSE
+
+Bootstrap 3.4.1 (LESS sources)
+  Path:      themes/xw_replica/css/build/bootstrap-3.4.1/
+  License:   MIT
+  Copyright: Copyright 2011-2019 Twitter, Inc.
+  Source:    https://getbootstrap.com/
+             https://github.com/twbs/bootstrap/blob/master/LICENSE
+
+Bootstrap 3.4.1 (compiled, modified)
+  Path:      themes/xw_replica/css/bootstrap-modified.css
+  License:   MIT
+  Copyright: Copyright 2011-2019 Twitter, Inc.
+  Source:    https://getbootstrap.com/
+
+normalize.css 3.0.3
+  Path:      themes/xw_replica/css/bootstrap-modified.css (embedded)
+  License:   MIT
+  Copyright: as stated in the file header: "normalize.css v3.0.3 | MIT License"
+  Source:    https://github.com/necolas/normalize.css
+
+Sortable 1.10.2
+  Path:      vendor/xanweb/rp_v_item_list/js/v-item-list.js
+             (see v-item-list.js.LICENSE.txt in the same folder)
+  License:   MIT
+  Copyright: authors RubaXa and owenm
+  Source:    https://github.com/SortableJS/Sortable
+
+ResponsiveSlides.js 1.54 (stylesheet)
+  Path:      themes/xw_replica/blocks/image_slider/view.css
+  License:   MIT
+  Copyright: "by @viljamis" (file header; no copyright line is included)
+  Source:    http://responsiveslides.com
+
+vuedraggable (Vue.Draggable)
+  Path:      bundled inside vendor/xanweb/rp_v_item_list/js/v-item-list.js
+  Version:   not recorded in the bundle
+  License:   MIT
+  Copyright: Copyright (c) 2016-2019 David Desmaisons
+  Source:    https://github.com/SortableJS/Vue.Draggable
+  Vue itself is not bundled; it is loaded from ConcreteCMS core.
+
+Xanweb helper libraries (rp_common, rp_helpers, rp_html_helpers,
+rp_js_localization, rp_module, rp_request, rp_v_item_list)
+  Path:      vendor/xanweb/rp_*/ (each folder has its own LICENSE file)
+  License:   MIT
+  Copyright: Copyright (c) 2022 Xanweb
+  Source:    https://www.xanweb.com
+
+Elemental theme (design origin)
+  The design of Replica is based on the Elemental theme that ships with
+  ConcreteCMS. The theme's styles derive from Elemental, and the images in
+  themes/xw_replica/images/ (background.png, background-slider-blue-sky.png,
+  background-slider-default.png, background-slider-night-road.png,
+  background-slider-royal.png) come from Elemental.
+  License:   MIT
+  Copyright: Copyright © 2008, Concrete CMS Inc.
+  Source:    https://github.com/concretecms/concretecms
+
+------------------------------------------------------------------------------
+
+Fonts are not bundled. The theme presets load web fonts from Google Fonts at
+runtime (themes/xw_replica/css/build/fonts/).

@@ -1,0 +1,64 @@
+.db-disclaimer-wrapper {
+  &.dp-cookies-popup {
+    padding: 15px 5%;
+    .close_icon {
+      font-size: 12px;
+    }
+
+    .dp-cookies-popup-content {
+      p{
+        margin-bottom: 0;
+      }
+      .small-text {
+        font-size: 0.85em;
+        margin-bottom: 1em;
+        line-height: 1;
+        @media (max-width: @screen-xs-max) {
+          line-height: 1.5;
+        }
+      }
+      .extra-small-text {
+        font-size: 0.8125em;
+        margin-bottom: 0.825em;
+        line-height: 1.2;
+      }
+
+      b, strong {
+        font-family:@body-type-font-family;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+    }
+
+    .dp-cookies-popup-controls {
+      padding-top: 20px;
+
+      button {
+        font-size: 0.875em;
+        @media (max-width: @screen-xs-max) {
+          font-size: 0.75em;
+          padding: 0.25em 0.435em;
+        }
+      }
+    }
+
+    .card {
+      border: 1px solid @brand-primary-color;
+      background: transparent;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .card-header input[type="checkbox"] {
+      margin-right: 5px;
+      margin-bottom: 2px;
+      vertical-align: middle;
+    }
+
+    .card-body > p:last-child {
+      margin-bottom: 0;
+      color: unset;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.acc-popup {
+  border-bottom: 1px solid @brand-primary-color;
+  .btn {
+    &:focus {
+      outline: none;
+    }
+    &:focus, &:active {
+      background-color: white;
+    }
+    &:after {
+      border-bottom: none;
+      border-right: none;
+    }
+    &-primary {
+      font-size: 0.875rem;
+      &:hover {
+        background-color: white;
+        color: @brand-primary-color;
+        text-decoration: none;
+      }
+    }
+    &-outline-secondary {
+      font-size: 0.875rem;
+      &:hover {
+        background-color: @brand-primary-color !important;
+        border-color: white;
+        color: white;
+        &:after {
+          border-right: none !important;
+        }
+      }
+    }
+  }
+  .acc-popup__content {
+    > :first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    line-height: 1.4;
+    p {
+      margin-bottom: 0.5rem;
+    }
+    .small-text {
+      font-size: smaller !important;
+    }
+  }
+  &:not(&__body--modal){
+    .acc-popup__controls {
+      margin-top: 1rem;
+    }
+  }
+}
+.acc-optout-options {
+  margin-bottom: 15px;
+  margin-top: 25px;
+  .card {
+    border: 1px solid @brand-primary-color;
+    background: transparent;
+    margin-bottom: 10px;
+    padding: 20px;
+    height: 100%;
+    font-size: .85rem;
+    line-height: 1.4;
+    border-radius: 0;
+  }
+  .card-header {
+    background: transparent;
+    border: 0;
+    padding: 0 0.5rem;
+    input[type="checkbox"] {
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+  .card-body {
+    padding: 0 0.4em 0.3rem;
+  }
+  input[type=checkbox].ios-toggler--round-flat {
+    &.ios-toggler--sm + span:before {
+      top: 1px;
+      bottom: 1.5px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+name: Question / help
+description: Ask how to use or configure Replica
+labels: [question]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: input
+    id: replica_version
+    attributes:
+      label: Replica version
+      placeholder: "2.0.0"
+    validations:
+      required: true
+  - type: input
+    id: concrete_version
+    attributes:
+      label: ConcreteCMS version
+      placeholder: "9.3.0"
+    validations:
+      required: true
+  - type: input
+    id: php_version
+    attributes:
+      label: PHP version
+      placeholder: "8.2"
+    validations:
+      required: true

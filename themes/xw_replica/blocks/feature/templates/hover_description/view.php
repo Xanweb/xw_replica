@@ -1,0 +1,22 @@
+<?php defined('C5_EXECUTE') or die("Access Denied.");
+
+$iconTag = $iconTag ?? '';
+?>
+
+<?php if ($linkURL) {
+    ?>
+    <a href="<?php echo $linkURL ?>">
+<?php 
+} ?>
+<div class="ccm-block-feature-item-hover-wrapper" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo h(strip_tags($paragraph))?>">
+    <div class="ccm-block-feature-item-hover">
+        <div class="ccm-block-feature-item-hover-icon"><?php echo $iconTag?></div>
+    </div>
+    <div class="ccm-block-feature-item-hover-title"><?php echo h($title) ?></div>
+</div>
+
+<?php if ($linkURL) {
+    ?>
+    </a>
+<?php 
+} ?>

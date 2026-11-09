@@ -1,0 +1,26 @@
+.fileset-list {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-bottom: @block-margin-bottom-size;
+
+  li {
+    margin-bottom: 10px;
+    border: 1px solid @brand-primary-color;
+    padding: 5px 10px;
+    &:before {
+      content: "\f15b";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      color: @brand-primary-color;
+    }
+    a{
+      color: @paragraph-type-color !important;
+      font-size: .875em;
+      line-height: 2;
+    }
+  }
+
+}

@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  php-lint:
+    name: php-lint (${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: none
+      - name: Lint PHP files
+        run: find . -name '*.php' -not -path './build/*' -print0 | xargs -0 -n1 php -l
+
+  package:
+    name: package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Script tests
+        run: python3 -m unittest discover -s .github/scripts/tests -v
+      - name: Export package
+        run: python3 .github/scripts/export_package.py HEAD dist/candidate.zip
+      - name: Check package contents
+        run: python3 .github/scripts/check_package.py dist/candidate.zip

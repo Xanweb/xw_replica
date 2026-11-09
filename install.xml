@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<concrete5-cif version="1.0">
+    <attributekeys>
+        <attributekey handle="exclude_subpages_from_nav" name="Exclude Sub-Pages From Nav" package="xw_replica"
+                      searchable="1"
+                      indexed="1" type="boolean" category="collection">
+            <type checked="0"/>
+        </attributekey>
+        <attributekey handle="thumbnail" name="Thumbnail" package="xw_replica" searchable="1" indexed="1"
+                      type="image_file"
+                      category="collection"/>
+        <attributekey handle="blog_entry_topics" name="Blog Entry Topics" package="xw_replica" searchable="1"
+                      indexed="1"
+                      type="topics" category="collection">
+            <tree name="Blog Entries" path="/"/>
+        </attributekey>
+    </attributekeys>
+    <attributesets>
+        <attributeset handle="navigation" name="Navigation" category="collection">
+            <attributekey handle="thumbnail"/>
+            <attributekey handle="exclude_subpages_from_nav"/>
+        </attributeset>
+        <attributeset handle="blog" name="Blog" package="xw_replica" locked="0" category="collection">
+            <attributekey handle="blog_entry_topics"/>
+        </attributeset>
+    </attributesets>
+    <pagetemplates>
+        <pagetemplate icon="blank.png" name="Blank" handle="blank" package="xw_replica" internal=""/>
+        <pagetemplate icon="full.png" name="Full" handle="full" package="xw_replica" internal=""/>
+        <pagetemplate icon="left_sidebar.png" name="Left Sidebar" handle="left_sidebar" package="xw_replica"
+                      internal=""/>
+        <pagetemplate icon="right_sidebar.png" name="Right Sidebar" handle="right_sidebar" package="xw_replica"
+                      internal=""/>
+    </pagetemplates>
+    <pagetypes>
+        <pagetype name="Page" handle="page" package="xw_replica" is-frequently-added="1" launch-in-composer="0">
+            <pagetemplates type="all" default="full"/>
+            <target handle="all" package="xw_replica"/>
+            <composer>
+                <formlayout>
+                    <set name="Basics">
+                        <control custom-template="" required="1" custom-label="Page Name" type="core_page_property"
+                                 handle="name"/>
+                        <control custom-template="" custom-label="" type="core_page_property" handle="description"/>
+                        <control custom-template="" custom-label="" type="core_page_property" handle="url_slug"/>
+                        <control custom-template="" custom-label="" type="core_page_property" handle="page_template"/>
+                        <control custom-template="" custom-label="" type="core_page_property" handle="publish_target"/>
+                        <control custom-template="" custom-label="" type="collection_attribute" handle="thumbnail"/>
+                    </set>
+                </formlayout>
+                <output>
+                    <pagetemplate handle="blank">
+                        <page name="" path="" filename="" pagetype="" user="admin" description="" package="xw_replica"/>
+                    </pagetemplate>
+                    <pagetemplate handle="full">
+                    </pagetemplate>
+                    <pagetemplate handle="left_sidebar">
+                        <page name="" path="" filename="" pagetype="" user="admin" description="" package="xw_replica"/>
+                    </pagetemplate>
+                    <pagetemplate handle="right_sidebar">
+                        <page name="" path="" filename="" pagetype="" user="admin" description="" package="xw_replica"/>
+                    </pagetemplate>
+                </output>
+            </composer>
+        </pagetype>
+        <pagetype name="Blog" handle="blog" is-frequently-added="1" package="xw_replica" launch-in-composer="1">
+            <pagetemplates type="custom" default="right_sidebar">
+                <pagetemplate handle="right_sidebar"/>
+            </pagetemplates>
+            <target handle="page_type" package="xw_replica" pagetype="blog"/>
+            <composer>
+                <formlayout>
+                    <set name="Post Details">
+                        <control custom-template="" custom-label="Entry Name" type="core_page_property" handle="name"/>
+                        <control custom-template="" custom-label="" type="core_page_property" handle="url_slug"/>
+                        <control custom-template="" custom-label="Short Description" type="core_page_property"
+                                 handle="description"/>
+                        <control custom-template="" type="core_page_property" handle="publish_target"/>
+                        <control custom-template="" custom-label="Topics" type="collection_attribute"
+                                 handle="blog_entry_topics"/>
+                        <control custom-template="" custom-label="" type="collection_attribute" handle="thumbnail"/>
+                    </set>
+                </formlayout>
+                <output>
+                    <pagetemplate handle="right_sidebar">
+                        <page name="" path="" filename="" pagetype="blog_entry" template="right_sidebar" user="admin"
+                              description="" package="xw_replica">
+                            <area name="Main">
+                                <blocks>
+                                    <block type="page_title" name="" custom-template="byline.php"
+                                           mc-block-id="3zXqs3ea">
+                                        <data table="btPageTitle">
+                                            <record>
+                                                <useCustomTitle><![CDATA[0]]></useCustomTitle>
+                                                <titleText><![CDATA[[Page Title]]]></titleText>
+                                            </record>
+                                        </data>
+                                    </block>
+                                </blocks>
+                            </area>
+                            <area name="Sidebar">
+                                <blocks>
+                                    <block type="topic_list" name="" mc-block-id="gZQmjnx8">
+                                        <data>
+                                            <mode>P</mode>
+                                            <title>Topics</title>
+                                            <topicAttributeKeyHandle>blog_entry_topics</topicAttributeKeyHandle>
+                                            <tree>Blog Entries</tree>
+                                            <cParentID>{ccm:export:page:/blog}</cParentID>
+                                        </data>
+                                    </block>
+                                    <block type="page_list" name="" mc-block-id="KffPWR4h">
+                                        <data table="btPageList">
+                                            <record>
+                                                <num><![CDATA[3]]></num>
+                                                <orderBy><![CDATA[random]]></orderBy>
+                                                <cParentID>{ccm:export:page:/blog}</cParentID>
+                                                <filterByRelated>1</filterByRelated>
+                                                <cThis><![CDATA[1]]></cThis>
+                                                <includeName><![CDATA[1]]></includeName>
+                                                <includeDescription><![CDATA[0]]></includeDescription>
+                                                <ptID>{ccm:export:pagetype:blog_entry}</ptID>
+                                                <pageListTitle>Related Posts</pageListTitle>
+                                                <relatedTopicAttributeKeyHandle>blog_entry_topics
+                                                </relatedTopicAttributeKeyHandle>
+                                            </record>
+                                        </data>
+                                    </block>
+                                </blocks>
+                            </area>
+                            <area name="Page Footer">
+                                <blocks>
+                                    <block type="horizontal_rule" name="" mc-block-id="jEWzzXJW"/>
+                                </blocks>
+                            </area>
+                        </page>
+                    </pagetemplate>
+                </output>
+            </composer>
+        </pagetype>
+    </pagetypes>
+    <trees>
+        <tree type="topic" name="Blog Entries">
+            <category name="Reviews">
+                <topic name="Gadgets"/>
+                <topic name="Movies"/>
+                <topic name="Books"/>
+                <topic name="Music"/>
+            </category>
+            <topic name="Projects"/>
+            <topic name="Sports"/>
+            <topic name="Humor"/>
+        </tree>
+    </trees>
+</concrete5-cif>

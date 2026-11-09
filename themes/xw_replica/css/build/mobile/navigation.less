@@ -1,0 +1,193 @@
+.ccm-responsive-overlay {
+  background: @overlay-background-color;
+  display: none;
+  position: absolute;
+  border-bottom: 5px solid @brand-primary-color;
+  width: 100%;
+  z-index: 99;
+  top: 80px;
+  left: 0;
+  padding-top: 15px;
+  padding-left: 20px;
+  -webkit-text-size-adjust: none;
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style-type: none;
+
+      &.parent-ul {
+        a {
+          &:after {
+            padding-left: 7px;
+            padding-top: 0;
+            font-size: 15px;
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+            font-weight: normal;
+            font-style: normal;
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: inherit;
+          }
+        }
+      }
+
+      a {
+        &:hover {
+          color: @brand-primary-color;
+        }
+
+        color: @header-navigation-type-color;
+        font-size: 18px;
+        display: inline-block;
+        width: 80%;
+        padding: 7px 5% 7px 0px;
+        margin: 0% 5% 0% 0;
+        padding-left: 15px;
+        height: 100%;
+        font-weight: 200;
+        text-decoration: none;
+      }
+
+      ul {
+        li {
+          &.last-li, &.parent-ul {
+            a {
+              padding-top: 0;
+              font-size: 15px;
+            }
+          }
+
+          &.last-li {
+            a {
+              &:after {
+                content: '';
+              }
+            }
+          }
+
+          padding-left: 10px;
+        }
+      }
+
+      display: block;
+    }
+  }
+}
+
+.ccm-responsive-menu-launch {
+  display: none;
+  cursor: pointer;
+  float: right;
+
+  &.responsive-button-close {
+    i {
+      &:after {
+        font-size: 25px;
+        color: @brand-primary-color;
+        content: "\f077";
+        font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+        font-weight: normal;
+        font-style: normal;
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: inherit;
+      }
+    }
+  }
+
+  i {
+    &:after {
+      font-size: 25px;
+      content: "\f0c9";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      color: @brand-primary-color;
+      font-weight: normal;
+      font-style: normal;
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: inherit;
+    }
+  }
+}
+
+@media all and (max-width: @screen-xs-max) {
+
+  .logo-area-copy {
+    display: block !important;
+  }
+
+  .ccm-responsive-menu-launch {
+    display: block;
+  }
+
+  .ccm-responsive-navigation.original {
+    display: none;
+  }
+
+  header {
+    .ccm-search-block-form {
+      margin-top: 20px;
+    }
+  }
+
+  .navbar-collapse {
+    &.collapse {
+      border-color: transparent;
+      padding-right: 0;
+      padding-left: 0;
+
+      &.in {
+        .navbar-nav {
+          margin: 7.5px 0;
+          float: unset;
+
+          li {
+            width: 100%;
+
+            &.dropdown-submenu > ul {
+              border: 0;
+              box-shadow: none;
+              margin-top: 0;
+              padding-inline-start: 20px;
+              position: relative;
+              width: 100%;
+
+              li {
+                border: 0;
+              }
+            }
+
+            .dropdown-menu {
+              .dropdown-menu {
+                left: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media all and (min-width: @screen-xs-max) {
+  .logo-area-copy {
+    display: none !important;
+  }
+
+  .ccm-responsive-overlay {
+    display: none !important;
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}

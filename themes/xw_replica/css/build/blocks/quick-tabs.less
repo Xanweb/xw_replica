@@ -1,0 +1,76 @@
+.simpleTabs {
+  margin: 0;
+  padding: 0;
+  display: none;
+  @media only screen and (min-width: 768px) {
+    display: block;
+    border-bottom: 1px solid @quicktabs-border-color;
+    li {
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-block;
+      padding: 14px 15px;
+      margin: 0 4px 0 0;
+      list-style: none;
+      cursor: pointer;
+      background-color: @quicktabs-item-background-color;
+      border: 1px solid @quicktabs-item-border-color;
+      border-bottom: none;
+      float: left;
+
+      &.active {
+        border: 1px solid @brand-primary-color;
+        border-bottom: none;
+        border-color: @brand-primary-color !important;
+        margin-bottom: -1px;
+        padding: 12px 14px 14px 14px;
+        border-top: 4px solid @brand-primary-color !important;
+        border-bottom: 0 @quicktabs-item-active-border-color solid;
+        border-bottom: none;
+        background-color: @quicktabs-item-active-background-color;
+
+        a {
+          color: @body-link-color !important;
+          font-weight: bold;
+        }
+      }
+
+      a {
+        font-size: 14px;
+        color: @quicktabs-item-link-color !important;
+        text-decoration: none !important;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.simpleTabsContainer {
+  .simpleTabsContent {
+    .container {
+      max-width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .simpleTabsContainer {
+    padding: 0;
+    background-color: @quicktabs-content-background-color;
+    clear: left;
+
+    .simpleTabsContent {
+      border: 1px solid @brand-primary-color;
+      float: left;
+      width: 100%;
+      margin-bottom: @block-margin-bottom-size;
+      padding: 15px;
+      display: none;
+      padding-top: 20px;
+
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}

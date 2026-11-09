@@ -1,0 +1,68 @@
+// feature block
+div.ccm-block-feature-item {
+  p {
+    margin-left: 0;
+  }
+  position: relative;
+  margin-bottom: @block-margin-bottom-size;
+
+  h4 {
+    color: @brand-primary-color;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  i {
+    background: @brand-primary-color;
+    width: 60px;
+    height: 60px;
+    font-size: 1.75em;
+    color: @feature-icon-color;
+    margin-right: 15px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 2px;
+    align-items: center;
+  }
+}
+
+// Custom home page class for feature
+div.feature-home-page {
+  div.ccm-block-feature-item h4, div.ccm-block-feature-item i {
+    color: @home-feature-title-color;
+  }
+
+  div.ccm-block-feature-item h4 {
+    font-size: 1.5em;
+  }
+
+  div.ccm-block-feature-item i {
+    color: @home-feature-icon-color;
+    font-size: 1.3em;
+    background: none;
+    width: unset;
+    height: unset;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+  }
+
+
+  div.ccm-block-feature-item {
+    padding-left: 45px;
+    a{
+      padding-top: 0;
+      padding-bottom: 0;
+      h4,i{
+        color: @body-link-color;
+      }
+      &:hover{
+        h4,i {
+          color: @body-link-hover-color;
+        }
+      }
+    }
+  }
+}

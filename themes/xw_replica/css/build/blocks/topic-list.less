@@ -1,0 +1,75 @@
+div.col-sidebar {
+  div.block-sidebar-wrapped{
+    &:first-child{
+      margin-top: 50px;
+    }
+  }
+  div.ccm-block-topic-list-wrapper {
+    margin: 25px 0 25px 0;
+    font-size: .975em;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    color: @h5-type-color;
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 1em;
+
+    }
+  }
+}
+
+div.ccm-block-topic-list-header {
+  font-size: @body-type-font-size;
+}
+
+ul.ccm-block-topic-list-list,ul.ccm-block-topic-list-page-topics{
+  list-style-type: none;
+  padding-inline-start: 15px !important;
+  li{
+    &:before {
+      content: "\f115";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      margin-right: 10px;
+      width: 10px;
+      height: 10px;
+      color: @body-link-color;
+    }
+
+    a {
+      padding: 5px 0 !important;
+      display: inline-block;
+      background-color: transparent;
+      color: @body-link-color;
+    }
+  }
+  ul {
+    margin-top: (@line-height-computed / 2);
+  }
+}
+
+// Topic List Displaying Topics of the Current Page
+ul.ccm-block-topic-list-page-topics {
+  list-style-type: none;
+  padding-left: 0px;
+  padding-bottom: 0px;
+
+  li {
+    margin-bottom: (@line-height-computed / 2); // matches bootstrap paragraph height
+    padding-bottom: 0px;
+  }
+
+}
+
+.ccm-block-topic-list-topic-selected {
+  font-weight: bold;
+}
+

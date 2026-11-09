@@ -1,0 +1,48 @@
+name: Bug report
+description: Something in Replica does not work as expected
+labels: [bug]
+body:
+  - type: input
+    id: replica_version
+    attributes:
+      label: Replica version
+      placeholder: "2.0.0"
+    validations:
+      required: true
+  - type: input
+    id: concrete_version
+    attributes:
+      label: ConcreteCMS version
+      placeholder: "9.3.0"
+    validations:
+      required: true
+  - type: input
+    id: php_version
+    attributes:
+      label: PHP version
+      placeholder: "8.2"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Drag images here.
