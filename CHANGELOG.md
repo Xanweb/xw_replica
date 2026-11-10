@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Internal
+
+- Removed unused `css/main.css`; the theme loads `main.less`.
+
 ## [2.0.0] - 2024-06-03
 
 ### Added
