@@ -24,6 +24,7 @@ class Controller extends Package implements ProviderInterface
         'vendor/xanweb/rp_request' => 'Xanweb\RpRequest',
         'vendor/xanweb/rp_v_item_list/src' => 'Xanweb\RpVueItemList'
     ];
+    protected $pkgAllowsFullContentSwap = true;
 
     public function getPackageName()
     {

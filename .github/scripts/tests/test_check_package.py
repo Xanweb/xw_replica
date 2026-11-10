@@ -15,6 +15,7 @@ def complete_entries():
     entries = {}
     for p in check_package.MUST_SHIP_FILES:
         entries[TOP + p] = b"x"
+    entries[TOP + "content.xml"] = b"<concrete5-cif/>"
     for d in check_package.MUST_SHIP_NONEMPTY_DIRS:
         entries[TOP + d + "file.txt"] = b"x"
     return entries
@@ -157,8 +158,9 @@ class CheckContentTest(ZipTestCase):
 
     def test_no_content_xml_skips_content_checks(self):
         e = complete_entries()
+        del e[TOP + "content.xml"]
         e[TOP + "content_files/123456789012_a.png"] = b"x"
-        self.assertEqual(self.problems(e), [])
+        self.assertEqual(self.problems(e), ["missing: content.xml"])
 
     def test_content_top_level_allowed(self):
         got = self.problems(self.content_entries(cx()))

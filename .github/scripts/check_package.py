@@ -10,6 +10,7 @@ TOP = "xw_replica/"
 MUST_SHIP_FILES = [
     "controller.php",
     "install.xml",
+    "content.xml",
     "icon.png",
     "LICENSE",
     "README.md",
