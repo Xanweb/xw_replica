@@ -18,7 +18,7 @@ jobs:
       matrix:
         php: ['7.4', '8.4']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -30,7 +30,7 @@ jobs:
     name: package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Script tests
@@ -39,3 +39,9 @@ jobs:
         run: python3 .github/scripts/export_package.py HEAD dist/candidate.zip
       - name: Check package contents
         run: python3 .github/scripts/check_package.py dist/candidate.zip
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: xw_replica-package
+          path: dist/candidate.zip
+          retention-days: 14
