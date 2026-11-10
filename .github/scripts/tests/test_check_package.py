@@ -20,7 +20,7 @@ def complete_entries():
     return entries
 
 
-class CheckPackageTest(unittest.TestCase):
+class ZipTestCase(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self._tmp.cleanup)
@@ -34,6 +34,9 @@ class CheckPackageTest(unittest.TestCase):
 
     def problems(self, entries, **kw):
         return check_package.check(self.make_zip(entries), **kw)
+
+
+class CheckPackageTest(ZipTestCase):
 
     def test_complete_package_ok(self):
         self.assertEqual(self.problems(complete_entries()), [])
@@ -99,6 +102,78 @@ class CheckPackageTest(unittest.TestCase):
     def test_extra_required(self):
         self.assertIn("missing: EXTRA.txt",
                       self.problems(complete_entries(), extra_required=["EXTRA.txt"]))
+
+
+def cx(refs=(), templates=()):
+    body = "".join('<a href="{ccm:export:file:%s}"/>' % r for r in refs)
+    pts = "".join('<pagetemplate handle="%s" name="N" icon="x" package="xw_replica"/>' % t
+                  for t in templates)
+    return ("<concrete5-cif><pagetemplates>%s</pagetemplates><pages>%s</pages>"
+            "</concrete5-cif>" % (pts, body)).encode()
+
+
+class CheckContentTest(ZipTestCase):
+    def content_entries(self, xml, extra=None):
+        e = complete_entries()
+        e[TOP + "content.xml"] = xml
+        for k, v in (extra or {}).items():
+            e[TOP + k] = v
+        return e
+
+    def test_content_ok(self):
+        e = self.content_entries(
+            cx(["123456789012:a.png"], ["full"]),
+            {"content_files/123456789012_a.png": b"x", "themes/xw_replica/full.php": b"x"})
+        self.assertEqual(self.problems(e), [])
+
+    def test_missing_content_file_fails(self):
+        e = self.content_entries(cx(["123456789012:demo_logo.png"]))
+        self.assertIn("missing content file for reference: 123456789012:demo_logo.png",
+                      self.problems(e))
+
+    def test_unused_content_file_fails(self):
+        e = self.content_entries(
+            cx(["123456789012:a.png"]),
+            {"content_files/123456789012_a.png": b"x", "content_files/123456789012_b.png": b"x"})
+        got = self.problems(e)
+        self.assertIn("unused content file: content_files/123456789012_b.png", got)
+        self.assertNotIn("unused content file: content_files/123456789012_a.png", got)
+
+    def test_template_without_layout_fails(self):
+        e = self.content_entries(cx(templates=["home"]))
+        self.assertIn("page template without layout: home", self.problems(e))
+
+    def test_nested_pagetemplate_ignored(self):
+        xml = (b"<concrete5-cif><pagetemplates/><pagetypes><pagetype><pagetemplate "
+               b'handle="nested"/></pagetype></pagetypes></concrete5-cif>')
+        self.assertEqual(self.problems(self.content_entries(xml)), [])
+
+    def test_content_xml_not_well_formed_fails(self):
+        e = self.content_entries(b"<concrete5-cif><pages>")
+        got = self.problems(e)
+        self.assertEqual(len(got), 1)
+        self.assertTrue(got[0].startswith("content.xml not well-formed:"))
+        self.assertIn("line", got[0])
+
+    def test_no_content_xml_skips_content_checks(self):
+        e = complete_entries()
+        e[TOP + "content_files/123456789012_a.png"] = b"x"
+        self.assertEqual(self.problems(e), [])
+
+    def test_content_top_level_allowed(self):
+        got = self.problems(self.content_entries(cx()))
+        self.assertFalse([p for p in got if "unexpected top-level entry" in p])
+
+    def test_unprefixed_reference_fails(self):
+        e = self.content_entries(cx(["logo.png"]))
+        self.assertIn("unprefixed content file reference: {ccm:export:file:logo.png}",
+                      self.problems(e))
+
+    def test_content_files_subfolder_fails(self):
+        e = self.content_entries(cx(), {"content_files/sub/123456789012_a.png": b"x"})
+        got = self.problems(e)
+        self.assertIn("unexpected path in content_files: content_files/sub/123456789012_a.png", got)
+        self.assertFalse([p for p in got if p.startswith("unused")])
 
 
 if __name__ == "__main__":

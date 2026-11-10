@@ -1,6 +1,8 @@
 """Check the contents of an exported release zip."""
 import pathlib
+import re
 import sys
+import xml.etree.ElementTree as ET
 import zipfile
 
 TOP = "xw_replica/"
@@ -36,10 +38,10 @@ MUST_SHIP_NONEMPTY_DIRS = [
     "request", "v_item_list",
 )]
 
-# Step 2 will add content.xml and content_files here.
 ALLOWED_TOP_LEVEL = {
     "controller.php", "install.xml", "icon.png", "LICENSE", "README.md",
     "NOTICE", "CHANGELOG.md", "blocks", "src", "themes", "vendor",
+    "content.xml", "content_files",
 }
 
 DEV_ONLY = [
@@ -56,6 +58,59 @@ def _is_dev_only(rel):
         elif rel == d:
             return True
     return False
+
+
+FILE_REF = re.compile(r"\{ccm:export:file:([0-9]{12}):([^}]+)\}")
+ANY_FILE_REF = re.compile(r"\{ccm:export:file:[^}]*\}")
+
+
+def check_content(files):
+    """Check content.xml against content_files/ and the theme layouts.
+
+    files maps package paths (relative to xw_replica/) to their bytes.
+    """
+    try:
+        root = ET.fromstring(files["content.xml"])
+    except ET.ParseError as exc:
+        return ["content.xml not well-formed: %s" % exc]
+    problems = []
+    text = files["content.xml"].decode("utf-8", "replace")
+
+    refs = []
+    for token in ANY_FILE_REF.findall(text):
+        m = FILE_REF.fullmatch(token)
+        if m:
+            ref = (m.group(1), m.group(2))
+            if ref not in refs:
+                refs.append(ref)
+        else:
+            problems.append("unprefixed content file reference: %s" % token)
+
+    prefix = "content_files/"
+    direct = set()
+    for rel in sorted(files):
+        if rel.startswith(prefix):
+            if "/" in rel[len(prefix):]:
+                problems.append("unexpected path in content_files: %s" % rel)
+            else:
+                direct.add(rel[len(prefix):])
+    used = set()
+    for pre, name in refs:
+        fname = "%s_%s" % (pre, name)
+        if fname in direct:
+            used.add(fname)
+        else:
+            problems.append("missing content file for reference: %s:%s" % (pre, name))
+    for fname in sorted(direct - used):
+        problems.append("unused content file: %s%s" % (prefix, fname))
+
+    templates = root.find("pagetemplates")
+    if templates is not None:
+        for pt in templates.findall("pagetemplate"):
+            handle = pt.get("handle")
+            if handle and "themes/xw_replica/%s.php" % handle not in files:
+                problems.append("page template without layout: %s" % handle)
+    return problems
 
 
 def check(zip_path, extra_required=()):
@@ -93,6 +148,8 @@ def check(zip_path, extra_required=()):
                     problems.append("unexpected top-level entry: %s" % top_name)
             if rel.lower().endswith(".php") and b"<?=" in z.read(files[rel]):
                 problems.append("short echo tag in %s" % rel)
+        if "content.xml" in files:
+            problems.extend(check_content({r: z.read(n) for r, n in files.items()}))
     return problems
 
 
