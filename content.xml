@@ -34,11 +34,8 @@
   </expressentities>
   <pagetemplates>
     <pagetemplate icon="blank.png" name="Blank" handle="blank" package="" internal=""/>
-    <pagetemplate icon="three_column.png" name="Both Sidebar" handle="both_sidebar" package="" internal=""/>
     <pagetemplate icon="full.png" name="Full" handle="full" package="" internal=""/>
-    <pagetemplate icon="full.png" name="Home" handle="home" package="" internal=""/>
     <pagetemplate icon="left_sidebar.png" name="Left Sidebar" handle="left_sidebar" package="" internal=""/>
-    <pagetemplate icon="full.png" name="Portfolio" handle="portfolio" package="" internal=""/>
     <pagetemplate icon="right_sidebar.png" name="Right Sidebar" handle="right_sidebar" package="" internal=""/>
   </pagetemplates>
   <stacks>
@@ -216,7 +213,7 @@
           <block type="image" name="">
             <data table="btContentImage">
               <record>
-                <fID>{ccm:export:file:901585297993:demo_logo.png}</fID>
+                <fID>{ccm:export:file:202611100001:replica-logo.png}</fID>
                 <fOnstateID>0</fOnstateID>
                 <cropImage>0</cropImage>
                 <maxWidth>0</maxWidth>
@@ -343,7 +340,7 @@
                   <block type="image" name="">
                     <data table="btContentImage">
                       <record>
-                        <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                        <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                         <fOnstateID>0</fOnstateID>
                         <cropImage>0</cropImage>
                         <maxWidth>0</maxWidth>
@@ -633,7 +630,7 @@
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:741769004359:slide_1.png}</fID>
+                <fID>{ccm:export:file:741769004359:slide-1.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Elemental Replica</title>
@@ -643,7 +640,7 @@
               </record>
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:121769004358:slide_2.png}</fID>
+                <fID>{ccm:export:file:121769004358:slide-2.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Elemental Replica</title>
@@ -653,7 +650,7 @@
               </record>
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:161769004356:slide3.png}</fID>
+                <fID>{ccm:export:file:161769004356:slide-3.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Elemental Replica</title>
@@ -719,7 +716,7 @@
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:741769004359:slide_1.png}</fID>
+                <fID>{ccm:export:file:741769004359:slide-1.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>This is the image slider block</title>
@@ -728,7 +725,7 @@
               </record>
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:121769004358:slide_2.png}</fID>
+                <fID>{ccm:export:file:121769004358:slide-2.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Replica</title>
@@ -802,7 +799,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
 <p>Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
 </blockquote>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/full-width-page/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -865,7 +862,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
           <block type="content" name="">
             <data table="btContentLocal">
               <record>
-                <content><![CDATA[<h2><img alt="2000x1328.png" style="margin-right: 20px; float: left; width: 500px; height: 332px;" src="{ccm:export:file:651769004582:2000x1328.png}" />High Quality</h2>
+                <content><![CDATA[<h2><img alt="Sample photo" style="margin-right: 20px; float: left; width: 500px; height: 332px;" src="{ccm:export:file:651769004582:photo-2000x1328.png}" />High Quality</h2>
 
 <p>Web design lorem Ipsum is simply dummy text of the printing and typesetting printer took a galley of type and scrambled it to make a type specimen book industry.</p>
 
@@ -1049,7 +1046,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Left Sidebar</title>
@@ -1120,13 +1117,13 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
 
 <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
 
-<p><img alt="2000x1328.png" style="margin-left: 20px; margin-right: 20px; float: right; width: 250px; height: 166px;" src="{ccm:export:file:651769004582:2000x1328.png}" />Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien.</p>
+<p><img alt="Sample photo" style="margin-left: 20px; margin-right: 20px; float: right; width: 250px; height: 166px;" src="{ccm:export:file:651769004582:photo-2000x1328.png}" />Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien.</p>
 
 <blockquote>
 <p>Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
 </blockquote>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -1159,7 +1156,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
 <p>Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
 </blockquote>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/right-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -1201,7 +1198,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Right Sidebar</title>
@@ -1257,7 +1254,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Full width content</title>
@@ -1301,7 +1298,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
           <block type="content" name="">
             <data table="btContentLocal">
               <record>
-                <content><![CDATA[<p><img alt="2000x1328.png" style="float: left; margin-right: 20px; width: 200px; height: 133px;" src="{ccm:export:file:651769004582:2000x1328.png}" />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
+                <content><![CDATA[<p><img alt="Sample photo" style="float: left; margin-right: 20px; width: 200px; height: 133px;" src="{ccm:export:file:651769004582:photo-2000x1328.png}" />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
 
 <h3>Phasellus viverra nulla</h3>
 
@@ -1311,7 +1308,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
 <p>Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
 </blockquote>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/full-width-page/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -1355,7 +1352,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Columns Layout</title>
@@ -1387,13 +1384,13 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
 
 <p>&nbsp;</p>
 
-<p><img alt="adding layouts" src="{ccm:export:file:761579864448:Bildschirmfoto_2020-01-24_um_12.11.32.png}" /></p>
+<p><img alt="adding layouts" src="{ccm:export:file:761579864448:screenshot-area-add-layout-menu.png}" /></p>
 
 <p>&nbsp;</p>
 
 <p><strong>Choose the Twitter Bootstrap Grid and the number of columns you want to add:</strong></p>
 
-<p><img alt="screenshot2.png" src="{ccm:export:file:751579864453:screenshot2.png}" /></p>
+<p><img alt="Add Layout grid" src="{ccm:export:file:751579864453:screenshot-add-layout-grid.png}" /></p>
 ]]></content>
               </record>
             </data>
@@ -1715,7 +1712,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
         </attributekey>
         <attributekey handle="thumbnail">
           <value>
-            <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+            <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
           </value>
         </attributekey>
         <attributekey handle="topics">
@@ -1858,7 +1855,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
           <block type="content" name="">
             <data table="btContentLocal">
               <record>
-                <content><![CDATA[<p><img alt="2000x1328.png" src="{ccm:export:file:651769004582:2000x1328.png}" /></p>
+                <content><![CDATA[<p><img alt="Sample photo" src="{ccm:export:file:651769004582:photo-2000x1328.png}" /></p>
 
 <h2>General View</h2>
 
@@ -1916,7 +1913,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Post Detail</title>
@@ -1938,7 +1935,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
         </attributekey>
         <attributekey handle="thumbnail">
           <value>
-            <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+            <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
           </value>
         </attributekey>
         <attributekey handle="topics">
@@ -2066,7 +2063,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
               <record>
                 <content><![CDATA[<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <img alt="2000x1328.png" style="float: right; height: 199px; width: 300px;" src="{ccm:export:file:651769004582:2000x1328.png}" />Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <img alt="Sample photo" style="float: right; height: 199px; width: 300px;" src="{ccm:export:file:651769004582:photo-2000x1328.png}" />Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
 ]]></content>
@@ -2114,7 +2111,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Post Detail</title>
@@ -2136,7 +2133,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
         </attributekey>
         <attributekey handle="thumbnail">
           <value>
-            <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+            <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
           </value>
         </attributekey>
         <attributekey handle="topics">
@@ -2285,13 +2282,13 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
 
 <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
 
-<p><img alt="2000x1328.png" style="float: left; margin-right: 20px; height: 166px; width: 250px;" src="{ccm:export:file:651769004582:2000x1328.png}" />Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien.</p>
+<p><img alt="Sample photo" style="float: left; margin-right: 20px; height: 166px; width: 250px;" src="{ccm:export:file:651769004582:photo-2000x1328.png}" />Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien.</p>
 
 <blockquote>
 <p>Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
 </blockquote>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -2330,7 +2327,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Post Detail</title>
@@ -2352,7 +2349,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
         </attributekey>
         <attributekey handle="thumbnail">
           <value>
-            <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+            <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
           </value>
         </attributekey>
         <attributekey handle="topics">
@@ -2499,7 +2496,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
                   <block type="image" name="">
                     <data table="btContentImage">
                       <record>
-                        <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                        <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                         <fOnstateID>0</fOnstateID>
                         <cropImage>0</cropImage>
                         <maxWidth>0</maxWidth>
@@ -2520,7 +2517,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
                   <block type="image" name="">
                     <data table="btContentImage">
                       <record>
-                        <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                        <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                         <fOnstateID>0</fOnstateID>
                         <cropImage>0</cropImage>
                         <maxWidth>0</maxWidth>
@@ -2541,7 +2538,7 @@ Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ulla
                   <block type="image" name="">
                     <data table="btContentImage">
                       <record>
-                        <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                        <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                         <fOnstateID>0</fOnstateID>
                         <cropImage>0</cropImage>
                         <maxWidth>0</maxWidth>
@@ -2598,7 +2595,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>Post Detail</title>
@@ -3272,10 +3269,10 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
 
 <p><strong>on Edit Mode click the block you want to change the template for:</strong></p>
 
-<p><img alt="change-template1.png" src="{ccm:export:file:851580028602:change-template1.png}" /></p>
+<p><img alt="Change page template" src="{ccm:export:file:851580028602:screenshot-change-template.png}" /></p>
 
 <p><strong>and click on Design &amp; Custom Template, following menu will appear:</strong><br />
-<img alt="Bildschirmfoto 2020-01-26 um 10.01.15.png" style="margin-left: 20px; margin-right: 20px; float: left; width: 622px; height: 400px;" src="{ccm:export:file:101580029374:Bildschirmfoto_2020-01-26_um_10.01.15.png}" /><br />
+<img alt="Block custom template menu" style="margin-left: 20px; margin-right: 20px; float: left; width: 622px; height: 400px;" src="{ccm:export:file:101580029374:screenshot-block-custom-template.png}" /><br />
 <strong>Click on the Settings Icon and choose the template from the dropdown menu under Custom Template than Save.</strong></p>
 ]]></content>
               </record>
@@ -3725,7 +3722,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                   <block type="content" name="">
                     <data table="btContentLocal">
                       <record>
-                        <content><![CDATA[<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
+                        <content><![CDATA[<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -3750,7 +3747,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                   <block type="content" name="" custom-template="block-sidebar-padded.php">
                     <data table="btContentLocal">
                       <record>
-                        <content><![CDATA[<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
+                        <content><![CDATA[<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -3775,7 +3772,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                   <block type="content" name="" custom-template="block-sidebar-wrapped.php">
                     <data table="btContentLocal">
                       <record>
-                        <content><![CDATA[<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
+                        <content><![CDATA[<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -3911,7 +3908,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                     <data table="btImageSliderEntries">
                       <record>
                         <cID>0</cID>
-                        <fID>{ccm:export:file:741769004359:slide_1.png}</fID>
+                        <fID>{ccm:export:file:741769004359:slide-1.png}</fID>
                         <linkURL/>
                         <internalLinkCID>0</internalLinkCID>
                         <title>Slider1</title>
@@ -3921,7 +3918,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                       </record>
                       <record>
                         <cID>0</cID>
-                        <fID>{ccm:export:file:121769004358:slide_2.png}</fID>
+                        <fID>{ccm:export:file:121769004358:slide-2.png}</fID>
                         <linkURL/>
                         <internalLinkCID>0</internalLinkCID>
                         <title>Slider2</title>
@@ -3965,7 +3962,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                           <block type="image" name="">
                             <data table="btContentImage">
                               <record>
-                                <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                                <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                                 <fOnstateID>0</fOnstateID>
                                 <cropImage>0</cropImage>
                                 <maxWidth>0</maxWidth>
@@ -3994,7 +3991,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                           <block type="image" name="" custom-template="image-circle.php">
                             <data table="btContentImage">
                               <record>
-                                <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                                <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                                 <fOnstateID>0</fOnstateID>
                                 <cropImage>0</cropImage>
                                 <maxWidth>0</maxWidth>
@@ -4023,7 +4020,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                           <block type="image" name="" custom-template="image-right-tilt.php">
                             <data table="btContentImage">
                               <record>
-                                <fID>{ccm:export:file:651769004582:2000x1328.png}</fID>
+                                <fID>{ccm:export:file:651769004582:photo-2000x1328.png}</fID>
                                 <fOnstateID>0</fOnstateID>
                                 <cropImage>0</cropImage>
                                 <maxWidth>0</maxWidth>
@@ -4207,16 +4204,12 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                   </block>
                 </column>
                 <column span="8" offset="0">
-                  <block type="rss_displayer" name="">
-                    <data table="btRssDisplay">
+                  <block type="content" name="">
+                    <data table="btContentLocal">
                       <record>
-                        <title/>
-                        <url>http://feeds.nytimes.com/nyt/rss/HomePage</url>
-                        <dateFormat>:longDate:</dateFormat>
-                        <itemsToDisplay>2</itemsToDisplay>
-                        <showSummary>1</showSummary>
-                        <launchInNewWindow>1</launchInNewWindow>
-                        <titleFormat>h5</titleFormat>
+                        <content><![CDATA[<h3>Latest News</h3>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris.</p>
+]]></content>
                       </record>
                     </data>
                   </block>
@@ -4429,7 +4422,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                 <sortOrder>0</sortOrder>
                 <description><![CDATA[<p>Description1:&nbsp;</p>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -4447,7 +4440,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
                 <sortOrder>1</sortOrder>
                 <description><![CDATA[<p>Description2:&nbsp;</p>
 
-<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="https://rttheme18.demo-rt.com/left-sidebar/#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
+<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent&nbsp;<a href="#">adipiscing</a>. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.</p>
 
 <ol>
 	<li>Sed lectus. Donec mollis hendrerit risus.</li>
@@ -5206,7 +5199,7 @@ Suspendisse et justo. Praesent mattis commyolk augue Aliquam ornare hendrerit au
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title>All Widgets</title>
@@ -5386,7 +5379,7 @@ Consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. se
             <data table="btImageSliderEntries">
               <record>
                 <cID>0</cID>
-                <fID>{ccm:export:file:601769004915:2500x650.png}</fID>
+                <fID>{ccm:export:file:601769004915:banner-2500x650.png}</fID>
                 <linkURL/>
                 <internalLinkCID>0</internalLinkCID>
                 <title/>
@@ -5543,9 +5536,6 @@ Consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. se
           <pagetemplate handle="blank">
             <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="page" template="blank" description="" root="true" package=""/>
           </pagetemplate>
-          <pagetemplate handle="both_sidebar">
-            <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="page" template="both_sidebar" description="" root="true" package=""/>
-          </pagetemplate>
           <pagetemplate handle="full">
             <page name="" path="" user="superadmin" public-date="2019-12-10 13:40:06" filename="" pagetype="page" template="full" description="" root="true" package="">
               <attributes>
@@ -5558,14 +5548,8 @@ Consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. se
               </attributes>
             </page>
           </pagetemplate>
-          <pagetemplate handle="home">
-            <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="page" template="home" description="" root="true" package=""/>
-          </pagetemplate>
           <pagetemplate handle="left_sidebar">
             <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="page" template="left_sidebar" description="" root="true" package=""/>
-          </pagetemplate>
-          <pagetemplate handle="portfolio">
-            <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="page" template="portfolio" description="" root="true" package=""/>
           </pagetemplate>
           <pagetemplate handle="right_sidebar">
             <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="page" template="right_sidebar" description="" root="true" package=""/>
@@ -5779,8 +5763,8 @@ Consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. se
       </composer>
     </pagetype>
     <pagetype name="Portfolio" handle="portfolio" package="xw_replica" launch-in-composer="1" is-frequently-added="1">
-      <pagetemplates type="custom" default="portfolio">
-        <pagetemplate handle="portfolio"/>
+      <pagetemplates type="custom" default="full">
+        <pagetemplate handle="full"/>
       </pagetemplates>
       <target handle="all" package="" form-factor=""/>
       <composer>
@@ -5794,8 +5778,8 @@ Consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. se
           </set>
         </formlayout>
         <output>
-          <pagetemplate handle="portfolio">
-            <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="portfolio" template="portfolio" description="" root="true" package="">
+          <pagetemplate handle="full">
+            <page name="" path="" user="superadmin" public-date="2020-12-04 12:41:13" filename="" pagetype="portfolio" template="full" description="" root="true" package="">
               <area name="Page Header">
                 <blocks>
                   <block type="page_title" name="" custom-template="" mc-block-id="90aa7f6b">

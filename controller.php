@@ -33,7 +33,7 @@ class Controller extends Package implements ProviderInterface
 
     public function getPackageDescription()
     {
-        return t('Replica Theme, by Xanweb');
+        return t('Replica Theme, by Xanweb. Support: %s', 'https://github.com/Xanweb/xw_replica/issues');
     }
 
     public function install()
