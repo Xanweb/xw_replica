@@ -111,6 +111,23 @@ def check_content(files):
             handle = pt.get("handle")
             if handle and "themes/xw_replica/%s.php" % handle not in files:
                 problems.append("page template without layout: %s" % handle)
+
+    pagetypes = root.find("pagetypes")
+    if pagetypes is not None:
+        for pt in pagetypes.findall("pagetype"):
+            handle = pt.get("handle")
+            pts = pt.find("pagetemplates")
+            default = pts.get("default") if pts is not None else None
+            if not default:
+                problems.append("page type without default template: %s" % handle)
+            if pts is not None and pts.get("type") == "custom":
+                allowed = [c.get("handle") for c in pts.findall("pagetemplate")]
+                if not allowed:
+                    problems.append("page type has no allowed templates: %s" % handle)
+                elif default and default not in allowed:
+                    problems.append("page type default template not allowed: %s" % handle)
+            if default and "themes/xw_replica/%s.php" % default not in files:
+                problems.append("page type default template without layout: %s" % handle)
     return problems
 
 

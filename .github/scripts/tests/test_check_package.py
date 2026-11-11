@@ -145,9 +145,12 @@ class CheckContentTest(ZipTestCase):
         self.assertIn("page template without layout: home", self.problems(e))
 
     def test_nested_pagetemplate_ignored(self):
-        xml = (b"<concrete5-cif><pagetemplates/><pagetypes><pagetype><pagetemplate "
-               b'handle="nested"/></pagetype></pagetypes></concrete5-cif>')
-        self.assertEqual(self.problems(self.content_entries(xml)), [])
+        xml = (b"<concrete5-cif><pagetemplates/><pagetypes><pagetype handle=\"p\">"
+               b'<pagetemplates type="custom" default="full"><pagetemplate handle="full"/>'
+               b'</pagetemplates><pagetemplate handle="nested"/></pagetype></pagetypes>'
+               b"</concrete5-cif>")
+        e = self.content_entries(xml, {"themes/xw_replica/full.php": b"x"})
+        self.assertEqual(self.problems(e), [])
 
     def test_content_xml_not_well_formed_fails(self):
         e = self.content_entries(b"<concrete5-cif><pages>")
@@ -176,6 +179,36 @@ class CheckContentTest(ZipTestCase):
         got = self.problems(e)
         self.assertIn("unexpected path in content_files: content_files/sub/123456789012_a.png", got)
         self.assertFalse([p for p in got if p.startswith("unused")])
+
+
+    def pagetype_xml(self, pts):
+        return ('<concrete5-cif><pagetemplates/><pagetypes><pagetype handle="news">%s'
+                '</pagetype></pagetypes></concrete5-cif>' % pts).encode()
+
+    def test_pagetype_without_default_fails(self):
+        e = self.content_entries(self.pagetype_xml('<pagetemplates type="custom"/>'))
+        got = self.problems(e)
+        self.assertIn("page type without default template: news", got)
+        self.assertIn("page type has no allowed templates: news", got)
+
+    def test_pagetype_custom_default_not_allowed_fails(self):
+        e = self.content_entries(
+            self.pagetype_xml('<pagetemplates type="custom" default="full">'
+                              '<pagetemplate handle="right_sidebar"/></pagetemplates>'),
+            {"themes/xw_replica/full.php": b"x", "themes/xw_replica/right_sidebar.php": b"x"})
+        self.assertIn("page type default template not allowed: news", self.problems(e))
+
+    def test_pagetype_default_without_layout_fails(self):
+        e = self.content_entries(
+            self.pagetype_xml('<pagetemplates type="all" default="full"/>'))
+        self.assertIn("page type default template without layout: news", self.problems(e))
+
+    def test_pagetype_ok(self):
+        e = self.content_entries(
+            self.pagetype_xml('<pagetemplates type="custom" default="right_sidebar">'
+                              '<pagetemplate handle="right_sidebar"/></pagetemplates>'),
+            {"themes/xw_replica/right_sidebar.php": b"x"})
+        self.assertEqual(self.problems(e), [])
 
 
 if __name__ == "__main__":

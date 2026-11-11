@@ -5558,7 +5558,9 @@ Consequat ipsum, nec sagittis sem nibh id elit nibh vel velit auctor aliquet. se
       </composer>
     </pagetype>
     <pagetype name="News" handle="news" package="" launch-in-composer="1" is-frequently-added="1">
-      <pagetemplates type="custom"/>
+      <pagetemplates type="custom" default="right_sidebar">
+        <pagetemplate handle="right_sidebar"/>
+      </pagetemplates>
       <target handle="parent_page" package="" path="/blog"/>
       <composer>
         <formlayout>
