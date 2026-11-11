@@ -211,5 +211,29 @@ class CheckContentTest(ZipTestCase):
         self.assertEqual(self.problems(e), [])
 
 
+    def layout_xml(self, template, style=""):
+        return ('<concrete5-cif><pagetemplates/><pages><page path="/x"><area name="A"><blocks>'
+                '<block type="core_area_layout" name="" custom-template="%s">%s'
+                '<arealayout type="theme-grid" columns="12"/></block></blocks></area></page>'
+                '</pages></concrete5-cif>' % (template, style)).encode()
+
+    def test_parallax_without_image_fails(self):
+        got = self.problems(self.content_entries(self.layout_xml("parallax")))
+        self.assertEqual(got, ["parallax layout without background image (page: /x)"])
+        style = "<style><backgroundImage/></style>"
+        got = self.problems(self.content_entries(self.layout_xml("parallax", style)))
+        self.assertEqual(got, ["parallax layout without background image (page: /x)"])
+
+    def test_parallax_with_image_ok(self):
+        style = ("<style><backgroundImage>{ccm:export:file:123456789012:a.png}"
+                 "</backgroundImage></style>")
+        e = self.content_entries(self.layout_xml("parallax", style),
+                                 {"content_files/123456789012_a.png": b"x"})
+        self.assertEqual(self.problems(e), [])
+
+    def test_non_parallax_layout_without_image_ok(self):
+        self.assertEqual(self.problems(self.content_entries(self.layout_xml("other"))), [])
+
+
 if __name__ == "__main__":
     unittest.main()

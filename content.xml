@@ -521,10 +521,6 @@
       <area name="Page Footer">
         <style>
           <backgroundColor>rgb(226, 235, 224)</backgroundColor>
-          <backgroundImage>{ccm:export:file:711769012825:background-2500x650.png}</backgroundImage>
-          <backgroundRepeat>no-repeat</backgroundRepeat>
-          <backgroundSize>auto</backgroundSize>
-          <backgroundPosition>left top</backgroundPosition>
           <paddingTop>50px</paddingTop>
           <paddingBottom>50px</paddingBottom>
           <paddingLeft>50px</paddingLeft>
@@ -532,6 +528,12 @@
         </style>
         <blocks>
           <block type="core_area_layout" name="" custom-template="parallax">
+            <style>
+              <backgroundImage>{ccm:export:file:711769012825:background-2500x650.png}</backgroundImage>
+              <backgroundRepeat>no-repeat</backgroundRepeat>
+              <backgroundSize>auto</backgroundSize>
+              <backgroundPosition>left top</backgroundPosition>
+            </style>
             <arealayout type="theme-grid" columns="12">
               <columns>
                 <column span="4" offset="0">

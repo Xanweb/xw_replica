@@ -128,6 +128,21 @@ def check_content(files):
                     problems.append("page type default template not allowed: %s" % handle)
             if default and "themes/xw_replica/%s.php" % default not in files:
                 problems.append("page type default template without layout: %s" % handle)
+
+    parents = {c: p for p in root.iter() for c in p}
+    for block in root.iter("block"):
+        if block.get("type") != "core_area_layout" or block.get("custom-template") != "parallax":
+            continue
+        style = block.find("style")
+        image = style.find("backgroundImage") if style is not None else None
+        if image is None or not (image.text or "").strip():
+            msg = "parallax layout without background image"
+            node = parents.get(block)
+            while node is not None and node.tag != "page":
+                node = parents.get(node)
+            if node is not None and (node.get("path") or node.get("name")):
+                msg += " (page: %s)" % (node.get("path") or node.get("name"))
+            problems.append(msg)
     return problems
 
 
