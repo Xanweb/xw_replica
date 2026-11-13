@@ -13,7 +13,7 @@ class Controller extends Package implements ProviderInterface
 {
     protected $pkgHandle = 'xw_replica';
     protected $appVersionRequired = '9.3.0';
-    protected $pkgVersion = '2.0.0';
+    protected $pkgVersion = '2.1.0';
     protected $pkgAutoloaderRegistries = [
         'src/Xanweb/Replica' => 'Xanweb\Replica',
         'vendor/xanweb/rp_common' => 'Xanweb\RpCommon',
