@@ -15,12 +15,13 @@ def complete_entries():
     entries = {}
     for p in check_package.MUST_SHIP_FILES:
         entries[TOP + p] = b"x"
+    entries[TOP + "content.xml"] = b"<concrete5-cif/>"
     for d in check_package.MUST_SHIP_NONEMPTY_DIRS:
         entries[TOP + d + "file.txt"] = b"x"
     return entries
 
 
-class CheckPackageTest(unittest.TestCase):
+class ZipTestCase(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self._tmp.cleanup)
@@ -34,6 +35,9 @@ class CheckPackageTest(unittest.TestCase):
 
     def problems(self, entries, **kw):
         return check_package.check(self.make_zip(entries), **kw)
+
+
+class CheckPackageTest(ZipTestCase):
 
     def test_complete_package_ok(self):
         self.assertEqual(self.problems(complete_entries()), [])
@@ -99,6 +103,136 @@ class CheckPackageTest(unittest.TestCase):
     def test_extra_required(self):
         self.assertIn("missing: EXTRA.txt",
                       self.problems(complete_entries(), extra_required=["EXTRA.txt"]))
+
+
+def cx(refs=(), templates=()):
+    body = "".join('<a href="{ccm:export:file:%s}"/>' % r for r in refs)
+    pts = "".join('<pagetemplate handle="%s" name="N" icon="x" package="xw_replica"/>' % t
+                  for t in templates)
+    return ("<concrete5-cif><pagetemplates>%s</pagetemplates><pages>%s</pages>"
+            "</concrete5-cif>" % (pts, body)).encode()
+
+
+class CheckContentTest(ZipTestCase):
+    def content_entries(self, xml, extra=None):
+        e = complete_entries()
+        e[TOP + "content.xml"] = xml
+        for k, v in (extra or {}).items():
+            e[TOP + k] = v
+        return e
+
+    def test_content_ok(self):
+        e = self.content_entries(
+            cx(["123456789012:a.png"], ["full"]),
+            {"content_files/123456789012_a.png": b"x", "themes/xw_replica/full.php": b"x"})
+        self.assertEqual(self.problems(e), [])
+
+    def test_missing_content_file_fails(self):
+        e = self.content_entries(cx(["123456789012:demo_logo.png"]))
+        self.assertIn("missing content file for reference: 123456789012:demo_logo.png",
+                      self.problems(e))
+
+    def test_unused_content_file_fails(self):
+        e = self.content_entries(
+            cx(["123456789012:a.png"]),
+            {"content_files/123456789012_a.png": b"x", "content_files/123456789012_b.png": b"x"})
+        got = self.problems(e)
+        self.assertIn("unused content file: content_files/123456789012_b.png", got)
+        self.assertNotIn("unused content file: content_files/123456789012_a.png", got)
+
+    def test_template_without_layout_fails(self):
+        e = self.content_entries(cx(templates=["home"]))
+        self.assertIn("page template without layout: home", self.problems(e))
+
+    def test_nested_pagetemplate_ignored(self):
+        xml = (b"<concrete5-cif><pagetemplates/><pagetypes><pagetype handle=\"p\">"
+               b'<pagetemplates type="custom" default="full"><pagetemplate handle="full"/>'
+               b'</pagetemplates><pagetemplate handle="nested"/></pagetype></pagetypes>'
+               b"</concrete5-cif>")
+        e = self.content_entries(xml, {"themes/xw_replica/full.php": b"x"})
+        self.assertEqual(self.problems(e), [])
+
+    def test_content_xml_not_well_formed_fails(self):
+        e = self.content_entries(b"<concrete5-cif><pages>")
+        got = self.problems(e)
+        self.assertEqual(len(got), 1)
+        self.assertTrue(got[0].startswith("content.xml not well-formed:"))
+        self.assertIn("line", got[0])
+
+    def test_no_content_xml_skips_content_checks(self):
+        e = complete_entries()
+        del e[TOP + "content.xml"]
+        e[TOP + "content_files/123456789012_a.png"] = b"x"
+        self.assertEqual(self.problems(e), ["missing: content.xml"])
+
+    def test_content_top_level_allowed(self):
+        got = self.problems(self.content_entries(cx()))
+        self.assertFalse([p for p in got if "unexpected top-level entry" in p])
+
+    def test_unprefixed_reference_fails(self):
+        e = self.content_entries(cx(["logo.png"]))
+        self.assertIn("unprefixed content file reference: {ccm:export:file:logo.png}",
+                      self.problems(e))
+
+    def test_content_files_subfolder_fails(self):
+        e = self.content_entries(cx(), {"content_files/sub/123456789012_a.png": b"x"})
+        got = self.problems(e)
+        self.assertIn("unexpected path in content_files: content_files/sub/123456789012_a.png", got)
+        self.assertFalse([p for p in got if p.startswith("unused")])
+
+
+    def pagetype_xml(self, pts):
+        return ('<concrete5-cif><pagetemplates/><pagetypes><pagetype handle="news">%s'
+                '</pagetype></pagetypes></concrete5-cif>' % pts).encode()
+
+    def test_pagetype_without_default_fails(self):
+        e = self.content_entries(self.pagetype_xml('<pagetemplates type="custom"/>'))
+        got = self.problems(e)
+        self.assertIn("page type without default template: news", got)
+        self.assertIn("page type has no allowed templates: news", got)
+
+    def test_pagetype_custom_default_not_allowed_fails(self):
+        e = self.content_entries(
+            self.pagetype_xml('<pagetemplates type="custom" default="full">'
+                              '<pagetemplate handle="right_sidebar"/></pagetemplates>'),
+            {"themes/xw_replica/full.php": b"x", "themes/xw_replica/right_sidebar.php": b"x"})
+        self.assertIn("page type default template not allowed: news", self.problems(e))
+
+    def test_pagetype_default_without_layout_fails(self):
+        e = self.content_entries(
+            self.pagetype_xml('<pagetemplates type="all" default="full"/>'))
+        self.assertIn("page type default template without layout: news", self.problems(e))
+
+    def test_pagetype_ok(self):
+        e = self.content_entries(
+            self.pagetype_xml('<pagetemplates type="custom" default="right_sidebar">'
+                              '<pagetemplate handle="right_sidebar"/></pagetemplates>'),
+            {"themes/xw_replica/right_sidebar.php": b"x"})
+        self.assertEqual(self.problems(e), [])
+
+
+    def layout_xml(self, template, style=""):
+        return ('<concrete5-cif><pagetemplates/><pages><page path="/x"><area name="A"><blocks>'
+                '<block type="core_area_layout" name="" custom-template="%s">%s'
+                '<arealayout type="theme-grid" columns="12"/></block></blocks></area></page>'
+                '</pages></concrete5-cif>' % (template, style)).encode()
+
+    def test_parallax_without_image_fails(self):
+        got = self.problems(self.content_entries(self.layout_xml("parallax")))
+        self.assertEqual(got, ["parallax layout without background image (page: /x)"])
+        style = "<style><backgroundImage/></style>"
+        got = self.problems(self.content_entries(self.layout_xml("parallax", style)))
+        self.assertEqual(got, ["parallax layout without background image (page: /x)"])
+
+    def test_parallax_with_image_ok(self):
+        style = ("<style><backgroundImage>{ccm:export:file:123456789012:a.png}"
+                 "</backgroundImage></style>")
+        e = self.content_entries(self.layout_xml("parallax", style),
+                                 {"content_files/123456789012_a.png": b"x"})
+        self.assertEqual(self.problems(e), [])
+
+    def test_non_parallax_layout_without_image_ok(self):
+        self.assertEqual(self.problems(self.content_entries(self.layout_xml("other"))), [])
 
 
 if __name__ == "__main__":

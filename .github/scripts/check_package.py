@@ -1,6 +1,8 @@
 """Check the contents of an exported release zip."""
 import pathlib
+import re
 import sys
+import xml.etree.ElementTree as ET
 import zipfile
 
 TOP = "xw_replica/"
@@ -8,6 +10,7 @@ TOP = "xw_replica/"
 MUST_SHIP_FILES = [
     "controller.php",
     "install.xml",
+    "content.xml",
     "icon.png",
     "LICENSE",
     "README.md",
@@ -36,10 +39,10 @@ MUST_SHIP_NONEMPTY_DIRS = [
     "request", "v_item_list",
 )]
 
-# Step 2 will add content.xml and content_files here.
 ALLOWED_TOP_LEVEL = {
     "controller.php", "install.xml", "icon.png", "LICENSE", "README.md",
     "NOTICE", "CHANGELOG.md", "blocks", "src", "themes", "vendor",
+    "content.xml", "content_files",
 }
 
 DEV_ONLY = [
@@ -56,6 +59,91 @@ def _is_dev_only(rel):
         elif rel == d:
             return True
     return False
+
+
+FILE_REF = re.compile(r"\{ccm:export:file:([0-9]{12}):([^}]+)\}")
+ANY_FILE_REF = re.compile(r"\{ccm:export:file:[^}]*\}")
+
+
+def check_content(files):
+    """Check content.xml against content_files/ and the theme layouts.
+
+    files maps package paths (relative to xw_replica/) to their bytes.
+    """
+    try:
+        root = ET.fromstring(files["content.xml"])
+    except ET.ParseError as exc:
+        return ["content.xml not well-formed: %s" % exc]
+    problems = []
+    text = files["content.xml"].decode("utf-8", "replace")
+
+    refs = []
+    for token in ANY_FILE_REF.findall(text):
+        m = FILE_REF.fullmatch(token)
+        if m:
+            ref = (m.group(1), m.group(2))
+            if ref not in refs:
+                refs.append(ref)
+        else:
+            problems.append("unprefixed content file reference: %s" % token)
+
+    prefix = "content_files/"
+    direct = set()
+    for rel in sorted(files):
+        if rel.startswith(prefix):
+            if "/" in rel[len(prefix):]:
+                problems.append("unexpected path in content_files: %s" % rel)
+            else:
+                direct.add(rel[len(prefix):])
+    used = set()
+    for pre, name in refs:
+        fname = "%s_%s" % (pre, name)
+        if fname in direct:
+            used.add(fname)
+        else:
+            problems.append("missing content file for reference: %s:%s" % (pre, name))
+    for fname in sorted(direct - used):
+        problems.append("unused content file: %s%s" % (prefix, fname))
+
+    templates = root.find("pagetemplates")
+    if templates is not None:
+        for pt in templates.findall("pagetemplate"):
+            handle = pt.get("handle")
+            if handle and "themes/xw_replica/%s.php" % handle not in files:
+                problems.append("page template without layout: %s" % handle)
+
+    pagetypes = root.find("pagetypes")
+    if pagetypes is not None:
+        for pt in pagetypes.findall("pagetype"):
+            handle = pt.get("handle")
+            pts = pt.find("pagetemplates")
+            default = pts.get("default") if pts is not None else None
+            if not default:
+                problems.append("page type without default template: %s" % handle)
+            if pts is not None and pts.get("type") == "custom":
+                allowed = [c.get("handle") for c in pts.findall("pagetemplate")]
+                if not allowed:
+                    problems.append("page type has no allowed templates: %s" % handle)
+                elif default and default not in allowed:
+                    problems.append("page type default template not allowed: %s" % handle)
+            if default and "themes/xw_replica/%s.php" % default not in files:
+                problems.append("page type default template without layout: %s" % handle)
+
+    parents = {c: p for p in root.iter() for c in p}
+    for block in root.iter("block"):
+        if block.get("type") != "core_area_layout" or block.get("custom-template") != "parallax":
+            continue
+        style = block.find("style")
+        image = style.find("backgroundImage") if style is not None else None
+        if image is None or not (image.text or "").strip():
+            msg = "parallax layout without background image"
+            node = parents.get(block)
+            while node is not None and node.tag != "page":
+                node = parents.get(node)
+            if node is not None and (node.get("path") or node.get("name")):
+                msg += " (page: %s)" % (node.get("path") or node.get("name"))
+            problems.append(msg)
+    return problems
 
 
 def check(zip_path, extra_required=()):
@@ -93,6 +181,8 @@ def check(zip_path, extra_required=()):
                     problems.append("unexpected top-level entry: %s" % top_name)
             if rel.lower().endswith(".php") and b"<?=" in z.read(files[rel]):
                 problems.append("short echo tag in %s" % rel)
+        if "content.xml" in files:
+            problems.extend(check_content({r: z.read(n) for r, n in files.items()}))
     return problems
 
 
